@@ -1,0 +1,70 @@
+/*#catalog-categories {
+  margin-bottom: 20px;
+}
+
+#catalog-categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+#catalog-categories li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#catalog-categories a {
+  text-decoration: none;
+  color: #333;
+}
+
+#specials {
+  text-align: center;
+}
+
+#specials a {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}*/
+
+
+
+
+        /* Стилі можна додати тут або в окремий CSS файл */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .categories {
+            list-style-type: none;
+            padding: 0;
+        }
+        .category {
+            margin-bottom: 20px;
+        }
+        .category h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .category ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .category li {
+            margin-bottom: 10px;
+        }
+        .category a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }

@@ -1,0 +1,21 @@
+// {
+//   "items": [
+//     {
+//       "id": 1,
+//       "name": "Чоловіча футболка",
+//       "shortname": "mens-t-shirt",
+//       "image": "mens-t-shirt.jpg",
+//       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed mauris vitae eros imperdiet semper. Donec ac diam condimentum, gravida augue eget, semper nulla. Sed sed quam id eros luctus varius. Duis at ipsum eget enim pulvinar feugiat.",
+//       "price": 399
+//     },
+//     {
+//       "id": 2,
+//       "name": "Жіноча сукня",
+//       "shortname": "womens-dress",
+//       "image": "womens-dress.jpg",
+//       "description": "Praesent vel leo sed magna aliquam bibendum. Phasellus non enim id mi sodales ullamcorper. Proin ac quam at magna aliquam varius. Quisque vel augue a enim consectetur ultricies. Maecenas sit amet quam a eros luctus varius. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed eget ligula ac tellus laoreet tristique.",
+//       "price": 699
+//     },
+//     // ... інші товари
+//   ]
+// }
