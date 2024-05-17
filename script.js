@@ -97,3 +97,29 @@ function setCategoryData(dataSet){
     })
 }
 loadCategoryData();
+
+function setPositions(categoryData, categoryName) {
+    var positions = categoryData;
+    var container = document.getElementById("catalog-container");
+    container.innerHTML = '';
+    positions.forEach((Element) => {
+        let div = document.createElement("div");
+        let img = document.createElement("img");
+        let h1 = document.createElement("h1");
+        let text = document.createElement("p");
+        let price = document.createElement("span");
+        let url = "images/" + categoryName + "/" + Element.id + ".jpg";
+
+        img.setAttribute("src", url);
+        h1.innerHTML = Element.name;
+        text.innerHTML = Element.description;
+        price.innerHTML = "Price: " + Element.price;
+
+        div.appendChild(img);
+        div.appendChild(h1);
+        div.appendChild(text);
+        div.appendChild(price);
+
+        container.appendChild(div);
+    });
+}
