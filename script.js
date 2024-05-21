@@ -90,7 +90,7 @@ function setCategoryData(dataSet){
         a.innerText=Element.name;
         a.id=Element.name;
         let img = document.createElement("img");
-        let src = "./images/"+ Element.name +"/category.jpg";
+        let src = "/images/"+ Element.name +"/category.jpg";
         img.setAttribute("src",src);
         a.appendChild(img);
         container.appendChild(a);
@@ -108,7 +108,7 @@ function setPositions(categoryData, categoryName) {
         let h1 = document.createElement("h1");
         let text = document.createElement("p");
         let price = document.createElement("span");
-        let url = "./images/" + categoryName + "/" + Element.id + ".jpg";
+        let url = "images/" + categoryName + "/" + Element.id + ".jpg";
 
         img.setAttribute("src", url);
         h1.innerHTML = Element.name;
