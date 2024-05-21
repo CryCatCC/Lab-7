@@ -1,5 +1,5 @@
 function getCategoryPositions(category){
-    var filename = category.toLowerCase() + '.json';
+    var filename = category + '.json';
     let request = new XMLHttpRequest();
 	request.open("GET",filename);
 	request.onreadystatechange = () =>
@@ -30,7 +30,7 @@ function setPositions(categoryData,categoryName)
         text.innerHTML = Element.description;
         h1.innerHTML = Element.name;
         price.innerHTML = "Price: "+Element.price;
-        let url = "images/" + categoryName.toLowerCase() + "/" +Element.id + ".jpg";
+        let url = "images/" + categoryName + "/" +Element.id + ".jpg";
 //        console.log(url);
         img.setAttribute("src",url);
         div.appendChild(h1);
@@ -88,9 +88,9 @@ function setCategoryData(dataSet){
         let a = document.createElement("a");
         a.classList.add("category-link");
         a.innerText=Element.name;
-        a.id=Element.shortname;
+        a.id=Element.name;
         let img = document.createElement("img");
-	let src = "./images/"+ Element.shortname +"/category.jpg";
+        let src = "/images/"+ Element.name +"/category.jpg";
         img.setAttribute("src",src);
         a.appendChild(img);
         container.appendChild(a);
