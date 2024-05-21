@@ -88,9 +88,9 @@ function setCategoryData(dataSet){
         let a = document.createElement("a");
         a.classList.add("category-link");
         a.innerText=Element.name;
-        a.id=Element.name;
+        a.id=Element.shortname;
         let img = document.createElement("img");
-        let src = "/images/"+ Element.name +"/category.jpg";
+	let src = "./images/"+ Element.shortname +"/category.jpg";
         img.setAttribute("src",src);
         a.appendChild(img);
         container.appendChild(a);
