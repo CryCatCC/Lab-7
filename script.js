@@ -91,6 +91,7 @@ function setCategoryData(dataSet){
         a.id=Element.name;
         let img = document.createElement("img");
         let src = "/images/"+ Element.name +"/category.jpg";
+	console.log(src);
         img.setAttribute("src",src);
         a.appendChild(img);
         container.appendChild(a);
