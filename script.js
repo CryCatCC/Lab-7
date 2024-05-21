@@ -108,7 +108,7 @@ function setPositions(categoryData, categoryName) {
         let h1 = document.createElement("h1");
         let text = document.createElement("p");
         let price = document.createElement("span");
-        let url = "images/" + categoryName + "/" + Element.id + ".jpg";
+        let url = "./images/" + categoryName + "/" + Element.id + ".jpg";
 
         img.setAttribute("src", url);
         h1.innerHTML = Element.name;
