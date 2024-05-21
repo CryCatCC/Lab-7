@@ -90,7 +90,7 @@ function setCategoryData(dataSet){
         a.innerText=Element.name;
         a.id=Element.name;
         let img = document.createElement("img");
-        let src = "/images/"+ Element.name +"/category.jpg";
+        let src = "images/"+ Element.name +"/category.jpg";
         img.setAttribute("src",src);
         a.appendChild(img);
         container.appendChild(a);
