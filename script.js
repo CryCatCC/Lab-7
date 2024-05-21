@@ -1,5 +1,5 @@
 function getCategoryPositions(category){
-    var filename = category + '.json';
+    var filename = category.toLowerCase() + '.json';
     let request = new XMLHttpRequest();
 	request.open("GET",filename);
 	request.onreadystatechange = () =>
@@ -7,6 +7,7 @@ function getCategoryPositions(category){
 		if (request.readyState === XMLHttpRequest.DONE)
 		{
 			let rtext = request.responseText;
+            //console.log(category, rtext);
 			let rjson = JSON.parse(rtext);
 			//console.log(rjson);
             setPositions(rjson,category);
@@ -30,7 +31,7 @@ function setPositions(categoryData,categoryName)
         text.innerHTML = Element.description;
         h1.innerHTML = Element.name;
         price.innerHTML = "Price: "+Element.price;
-        let url = "images/" + categoryName + "/" +Element.id + ".jpg";
+        let url = "images/" + categoryName.toLowerCase() + "/" +Element.id + ".jpg";
 //        console.log(url);
         img.setAttribute("src",url);
         div.appendChild(h1);
@@ -42,29 +43,7 @@ function setPositions(categoryData,categoryName)
     )
 }
 
-var prevRand;
-function setButtonEvents(){
-    document.getElementById("specials-link").addEventListener('click',function(event){
-        event.preventDefault();
-        var categories = Array();
-        document.querySelectorAll(".category-link").forEach(link => {
-            categories.push(link.getAttribute("id"));
-        })
-        var rand = Math.trunc(Math.random()*categories.length);
-        while (rand==prevRand)
-            rand = Math.trunc(Math.random()*categories.length);
-        prevRand = rand;
-        getCategoryPositions(categories[rand]);
-    })
- document.querySelectorAll('.category-link').forEach(link => {
-    link.addEventListener('click', function(event) {
-        event.preventDefault();
-        var category = this.getAttribute('id');
-        console.log("category = ", category);
-        getCategoryPositions(category);
-    });
-});
-}
+
 
 function loadCategoryData(){
     let request = new XMLHttpRequest();
@@ -97,7 +76,7 @@ function setCategoryData(dataSet){
     })
 }
 loadCategoryData();
-
+// SET ELEMS IN MAIN CONTAINER
 function setPositions(categoryData, categoryName) {
     var positions = categoryData;
     var container = document.getElementById("catalog-container");
@@ -122,4 +101,29 @@ function setPositions(categoryData, categoryName) {
 
         container.appendChild(div);
     });
+}
+
+
+var prevRand;
+function setButtonEvents(){
+    document.getElementById("specials-link").addEventListener('click',function(event){
+        event.preventDefault();
+        var categories = Array();
+        document.querySelectorAll(".category-link").forEach(link => {
+            categories.push(link.getAttribute("id"));
+        })
+        var rand = Math.trunc(Math.random()*categories.length);
+        while (rand==prevRand)
+            rand = Math.trunc(Math.random()*categories.length);
+        prevRand = rand;
+        getCategoryPositions(categories[rand]);
+    })
+ document.querySelectorAll('.category-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        var category = this.getAttribute('id');
+        console.log("category = ", category);
+        getCategoryPositions(category);
+    });
+});
 }
