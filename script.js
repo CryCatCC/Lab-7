@@ -1,4 +1,4 @@
-GitHub can't read this code and isn't showing pictures on my site. Whats the problem? function getCategoryPositions(category){
+function getCategoryPositions(category){
     var filename = category + '.json';
     let request = new XMLHttpRequest();
 	request.open("GET",filename);
