@@ -1,5 +1,5 @@
 function getCategoryPositions(category){
-    var filename = category.toLowerCase() + '.json';
+    var filename = category + '.json';
     let request = new XMLHttpRequest();
 	request.open("GET",filename);
 	request.onreadystatechange = () =>
@@ -7,7 +7,6 @@ function getCategoryPositions(category){
 		if (request.readyState === XMLHttpRequest.DONE)
 		{
 			let rtext = request.responseText;
-            //console.log(category, rtext);
 			let rjson = JSON.parse(rtext);
 			//console.log(rjson);
             setPositions(rjson,category);
@@ -31,7 +30,7 @@ function setPositions(categoryData,categoryName)
         text.innerHTML = Element.description;
         h1.innerHTML = Element.name;
         price.innerHTML = "Price: "+Element.price;
-        let url = "images/" + categoryName.toLowerCase() + "/" +Element.id + ".jpg";
+        let url = "images/" + categoryName + "/" +Element.id + ".jpg";
 //        console.log(url);
         img.setAttribute("src",url);
         div.appendChild(h1);
@@ -42,67 +41,6 @@ function setPositions(categoryData,categoryName)
     }
     )
 }
-
-
-
-function loadCategoryData(){
-    let request = new XMLHttpRequest();
-	request.open("GET","categories.json");
-	request.onreadystatechange = () =>
-	{
-		if (request.readyState === XMLHttpRequest.DONE)
-		{
-			let rtext = request.responseText;
-			let rjson = JSON.parse(rtext);
-			console.log(rjson);
-            setCategoryData(rjson);
-            setButtonEvents();
-		}
-	}
-	request.send();
-}
-function setCategoryData(dataSet){
-    let container = document.getElementById("Categories");
-    dataSet.forEach((Element)=>{
-        let a = document.createElement("a");
-        a.classList.add("category-link");
-        a.innerText=Element.name;
-        a.id=Element.shortname;
-        let img = document.createElement("img");
-	let src = "./images/"+ Element.shortname +"/category.jpg";
-        img.setAttribute("src",src);
-        a.appendChild(img);
-        container.appendChild(a);
-    })
-}
-loadCategoryData();
-// SET ELEMS IN MAIN CONTAINER
-function setPositions(categoryData, categoryName) {
-    var positions = categoryData;
-    var container = document.getElementById("catalog-container");
-    container.innerHTML = '';
-    positions.forEach((Element) => {
-        let div = document.createElement("div");
-        let img = document.createElement("img");
-        let h1 = document.createElement("h1");
-        let text = document.createElement("p");
-        let price = document.createElement("span");
-        let url = "images/" + categoryName + "/" + Element.id + ".jpg";
-
-        img.setAttribute("src", url);
-        h1.innerHTML = Element.name;
-        text.innerHTML = Element.description;
-        price.innerHTML = "Price: " + Element.price;
-
-        div.appendChild(img);
-        div.appendChild(h1);
-        div.appendChild(text);
-        div.appendChild(price);
-
-        container.appendChild(div);
-    });
-}
-
 
 var prevRand;
 function setButtonEvents(){
@@ -127,3 +65,35 @@ function setButtonEvents(){
     });
 });
 }
+
+function loadCategoryData(){
+    let request = new XMLHttpRequest();
+	request.open("GET","categories.json");
+	request.onreadystatechange = () =>
+	{
+		if (request.readyState === XMLHttpRequest.DONE)
+		{
+			let rtext = request.responseText;
+			let rjson = JSON.parse(rtext);
+			console.log(rjson);
+            setCategoryData(rjson);
+            setButtonEvents();
+		}
+	}
+	request.send();
+}
+function setCategoryData(dataSet){
+    let container = document.getElementById("Categories");
+    dataSet.forEach((Element)=>{
+        let a = document.createElement("a");
+        a.classList.add("category-link");
+        a.innerText=Element.name;
+        a.id=Element.name;
+        let img = document.createElement("img");
+        let src = "/images/"+ Element.name +"/category.jpg";
+        img.setAttribute("src",src);
+        a.appendChild(img);
+        container.appendChild(a);
+    })
+}
+loadCategoryData();
