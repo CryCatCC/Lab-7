@@ -30,7 +30,7 @@ function setPositions(categoryData,categoryName)
         text.innerHTML = Element.description;
         h1.innerHTML = Element.name;
         price.innerHTML = "Price: "+Element.price;
-        let url = "./images/" + categoryName + "/" +Element.id + ".jpg";
+        let url = "./images/" + categoryName.toLowerCase() + "/" +Element.id + ".jpg";
 //        console.log(url);
         img.setAttribute("src",url);
         div.appendChild(h1);
